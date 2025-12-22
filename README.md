@@ -3,19 +3,19 @@
 
 # Exchangeable Gaussian Processes with application to epidemics
 
-Lampros Bouranis^(1,\*), Petros Barmpounakis^2, Nikolaos Demiris^1,
-Konstantinos Kalogeropoulos^2
+Lampros Bouranis$^{1,*}$, Petros Barmpounakis$^2$, Nikolaos Demiris$^1$,
+Konstantinos Kalogeropoulos$^2$
 
-^1 Department of Statistics, Athens University of Economics and
+$^1$ Department of Statistics, Athens University of Economics and
 Business, Athens, Greece
 
-^2 Department of Oncology, University of Cambridge, Cambridge, United
+$^2$ Department of Oncology, University of Cambridge, Cambridge, United
 Kingdom
 
-^3 The London School of Economics and Political Science, London, United
-kingdom
+$^3$ The London School of Economics and Political Science, London,
+United kingdom
 
-^\* Corresponding author (<bouranis@aueb.gr>)
+$^*$ Corresponding author (<bouranis@aueb.gr>)
 
 arXiv preprint: [link](https://arxiv.org/abs/2512.05227)
 
