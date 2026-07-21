@@ -38,7 +38,7 @@ sessionInfo()
 #
 ###########################################################################
 main_path       <- "...//Chikv//4_Stan_Outputs//"
-store_model_out <- paste0(main_path, "CHIKV_FWI_2014_IGBM_v5_chol", ".RData")
+store_model_out <- paste0(main_path, "CHIKV_FWI_2014_mxGP", ".RData")
 
 #---- Set system locale to English:
 Sys.setlocale("LC_ALL", "English")
@@ -61,7 +61,7 @@ round(nuts_fit_1_summary, 3)
 # Estimation of intra-class coefficient for the xGBM model
 #
 ###########################################################################
-xgbm_rho <- posts_mcmc[["sigma_x"]]^2/(posts_mcmc[["sigma_x"]]^2 + posts_mcmc[["sigma_mu"]]^2)
+xgbm_rho <- posts_mcmc[["sigma_mu"]]^2/(posts_mcmc[["sigma_x"]]^2 + posts_mcmc[["sigma_mu"]]^2)
 
 round(c(mean(xgbm_rho), quantile(xgbm_rho, probs = c(0.025, 0.975))), 3)
 
@@ -75,7 +75,7 @@ dt_store <- data.frame(mean = rep(0, dim(posts_mcmc[["sigma_x"]])[2]),
                        high = rep(0, dim(posts_mcmc[["sigma_x"]])[2]))
 for (i in 1:dim(posts_mcmc[["sigma_x"]])[2]){
 
-  tmp_mcmc <- posts_mcmc[["sigma_x"]][,i]^2/(posts_mcmc[["sigma_x"]][,i]^2 + posts_mcmc[["sigma_mu"]]^2)
+  tmp_mcmc <- posts_mcmc[["sigma_mu"]]^2/(posts_mcmc[["sigma_x"]][,i]^2 + posts_mcmc[["sigma_mu"]]^2)
 
   dt_store[i,1] <- mean(tmp_mcmc)
   dt_store[i,2] <- quantile(tmp_mcmc, probs = 0.025)
@@ -89,7 +89,7 @@ round(dt_store, 3)
 # Estimation of intra-class coefficient for the xGP model
 #
 ###########################################################################
-xgp_rho <- posts_mcmc[["sigma_x"]]^2/(posts_mcmc[["sigma_x"]]^2 + posts_mcmc[["sigma_common"]]^2)
+xgp_rho <- posts_mcmc[["sigma_common"]]^2/(posts_mcmc[["sigma_x"]]^2 + posts_mcmc[["sigma_common"]]^2)
 
 round(c(mean(xgp_rho), quantile(xgp_rho, probs = c(0.025, 0.975))), 3)
 
@@ -103,7 +103,7 @@ dt_store <- data.frame(mean = rep(0, dim(posts_mcmc[["sigma"]])[2]),
                        high = rep(0, dim(posts_mcmc[["sigma"]])[2]))
 for (i in 1:dim(posts_mcmc[["sigma"]])[2]){
 
-  tmp_mcmc <- posts_mcmc[["sigma"]][,i]^2/(posts_mcmc[["sigma"]][,i]^2 + posts_mcmc[["sigma_common"]]^2)
+  tmp_mcmc <- posts_mcmc[["sigma_common"]]^2/(posts_mcmc[["sigma"]][,i]^2 + posts_mcmc[["sigma_common"]]^2)
 
   dt_store[i,1] <- mean(tmp_mcmc)
   dt_store[i,2] <- quantile(tmp_mcmc, probs = 0.025)
