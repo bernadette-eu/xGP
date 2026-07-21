@@ -21,12 +21,24 @@ arXiv preprint: [link](https://arxiv.org/abs/2512.05227)
 
 ## Summary
 
-We develop a Bayesian non-parametric framework based on multi-task
-Gaussian processes, appropriate for temporal shrinkage. We focus on a
-particular class of dynamic hierarchical models to obtain evidence-based
-knowledge of infectious disease burden. These models induce a
-parsimonious way to capture cross-dependence between groups while
-retaining a natural interpretation based on an underlying mean process,
-itself expressed as a Gaussian process. We analyse distinct types of
-outbreak data from recent epidemics and find that the proposed models
-result in improved predictive ability against competing alternatives.
+We develop a Bayesian nonparametric framework for modeling collections
+of related epidemic trajectories using exchangeable Gaussian processes.
+The proposed formulation induces structured dependence across
+time-varying transmission processes through shared latent Gaussian
+process components, leading to interpretable pooling behaviour, variance
+decompositions and intra-class correlation parameters that quantify
+information sharing across populations. The framework accommodates both
+direct and indirect observation regimes, including noisy measurements of
+effective reproduction numbers, latent transmission models for
+Chikungunya outbreaks and age-structured epidemic systems driven by
+partially observed infection dynamics. We discuss connections with
+broader multi-output Gaussian process formulations, including
+coregionalisation and latent factor models, while emphasising the
+interpretation of the proposed approach as a functional random-effects
+framework for related temporal trajectories. A simulation study
+investigates the behaviour of the proposed models under varying
+dependence structures including exchangeable, weakly exchangeable and
+non-exchangeable settings. Across several epidemic applications, the
+proposed models demonstrate strong predictive performance while
+providing interpretable insights into shared and population-specific
+transmission dynamics.
